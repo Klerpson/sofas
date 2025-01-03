@@ -1,0 +1,12 @@
+---
+layout: compress
+---
+{% include css/universal.css %}
+{% include css/home.css %}
+{% include css/nav.css %}
+{% include css/header.css %}
+{% include css/landing.css %}
+{% include css/carousel.css %}
+{% include css/faqs.css %}
+{% include css/footer.css %}
+{% include css/buscador.css %}

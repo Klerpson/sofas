@@ -1,0 +1,23 @@
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  background-color: var(--principal);
+}
+
+footer a,
+footer p {
+  display: inline-block;
+  font-family: var(--fuenteTexto);
+  font-size: var(--sizeTextos);
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+footer a {
+  margin: 1rem 0.5rem;
+  font-weight: 700;
+}

@@ -1,0 +1,12 @@
+<div class="stack-container" id="stackContainer">
+  <div class="hint">Desliza hacia arriba o usa los botones ↑</div>
+  {% for photo in site.data[include.client] %}
+  <div class="card">
+    <img src="{{photo|relative_url}}" alt="Imagen {{forloop.index}}" draggable="false">
+  </div>
+  {% endfor %}
+  <div class="controls">
+    <button class="control-btn prev">←</button>
+    <button class="control-btn next">→</button>
+</div>
+</div>

@@ -1,0 +1,9 @@
+/* BREADCRUMBS */
+
+#breadcrumbs {
+  font-family: var(--fuenteTitulos);  
+  padding: 16px 0;
+  border-top: 2px solid var(--acento);
+  border-bottom: 2px solid var(--acento);
+  max-width: max-content;
+}

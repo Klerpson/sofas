@@ -1,0 +1,24 @@
+{% assign url_params = page.url | split: '?' | last %}
+{% if url_params contains 'email=aaaabbbb' %}
+<div class="form-container desaparace">
+  {% else %}
+<div class="form-container">
+{% endif %}
+  <div class="logo-container">
+    Ingresa tu correo
+  </div>
+
+  <form class="form">
+    <div class="form-group">
+      <label for="email">Clave</label>
+      <input type="text" id="email" name="email" placeholder="Ingresa la clave" required="">
+    </div>
+
+    <button class="form-submit-btn" type="submit">Ingresar al club</button>
+  </form>
+
+  <p class="signup-link">
+    ¿Aún no tienes cuenta?
+    <a href="#" class="signup-link link"> Pide la tuya</a>
+  </p>
+</div>

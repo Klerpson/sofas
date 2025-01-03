@@ -1,0 +1,21 @@
+baseurl: ''
+url: 'https://revisemos.com'
+name: Propiedad en venta en el corazón comercial de Neiva
+title: Propiedad en venta en el corazón comercial de Neiva
+celular: "317 373 0534"
+
+permalink: :slug
+
+markdown: kramdown
+
+keep_files: [/img]
+
+compress_html:
+  clippings: []
+  comments: []
+  endings: []
+  ignore:
+  envs: []
+  blanklines: false
+  profile: false
+  startings: []
