@@ -3,10 +3,13 @@ layout: compress
 ---
 {% include head.html %}
 <body>
-  {% include nav.html %}
-  {% include header.html %}
+    <button id="scroll-to-top" aria-label="Volver arriba" title="Volver arriba">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 15l-6-6-6 6"/>
+        </svg>
+      </button>
     {{ content }}
-  {% include footer.html %}
+
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -15,8 +18,8 @@ layout: compress
     var whatsappLinks = document.querySelectorAll("a#lead_whatsapp");
     whatsappLinks.forEach(function(link) {
         var message = "Hola! Me gustaría recibir más información de esta propiedad: " + encodeURIComponent(currentURL);
-        var mobileLink = "https://wa.me/573173730534?text=" + message;
-        var desktopLink = "https://web.whatsapp.com/send?phone=573173730534&text=" + message;
+        var mobileLink = "https://wa.me/57{{site.celular}}?text=" + message;
+        var desktopLink = "https://web.whatsapp.com/send?phone=57{{site.celular}}&text=" + message;
         if (isMobile) {
             link.setAttribute("href", mobileLink);
         } else {
@@ -26,94 +29,30 @@ layout: compress
   });
   </script>
   <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const carousel = document.querySelector(".slide-container");
-  const firstImg = carousel.querySelectorAll("img")[0];
-  const arrowIcons = document.querySelectorAll(".gallery-slider span");
-  let isDragStart = false,
-    isDragging = false,
-    prevPageX,
-    prevScrollLeft;
-  const firstImgWidth = firstImg.clientWidth + 7;
-
-  arrowIcons.forEach((icon) => {
-    icon.addEventListener("click", () => {
-      carousel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
+    document.addEventListener('DOMContentLoaded', function() {
+      var scrollToTopBtn = document.getElementById("scroll-to-top");
+      var rootElement = document.documentElement;
+      function handleScroll() {
+        var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+        if ((rootElement.scrollTop / scrollTotal) > 0.20) {
+          scrollToTopBtn.classList.add("show");
+        } else {
+          scrollToTopBtn.classList.remove("show");
+        }
+      }
+    
+      function scrollToTop() {
+        rootElement.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+    
+      scrollToTopBtn.addEventListener("click", scrollToTop);
+      document.addEventListener("scroll", handleScroll);
     });
-  });
-
-  const dragStart = (e) => {
-    isDragStart = true;
-    isDragging = false;
-    prevPageX = e.pageX || e.touches[0].pageX;
-    prevScrollLeft = carousel.scrollLeft;
-  };
-
-  const dragging = (e) => {
-    if (!isDragStart) return;
-    isDragging = true;
-    e.preventDefault();
-    carousel.classList.add("dragging");
-    const positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
-    carousel.scrollLeft = prevScrollLeft - positionDiff;
-  };
-
-  const dragStop = () => {
-    isDragStart = false;
-    carousel.classList.remove("dragging");
-    if (!isDragging) return;
-    isDragging = false;
-  };
-
-  carousel.addEventListener("mousedown", dragStart);
-  carousel.addEventListener("touchstart", dragStart);
-  carousel.addEventListener("mousemove", dragging);
-  carousel.addEventListener("touchmove", dragging);
-  carousel.addEventListener("mouseup", dragStop);
-  carousel.addEventListener("mouseleave", dragStop);
-  carousel.addEventListener("touchend", dragStop);
-  carousel.addEventListener("dragstart", (e) => e.preventDefault());
-});
-  </script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-      const imagenes = document.querySelectorAll('.img-galeria');
-      const imagenesLight = document.querySelector('.agregar-imagen');
-      const contenedorLight = document.querySelector('.imagen-light');
-      const closeBtn = document.querySelector('.close');
-
-      const toggleLightbox = (show = true) => {
-          contenedorLight.classList.toggle('show', show);
-          imagenesLight.classList.toggle('showImage', show);
-          document.body.style.overflow = show ? 'hidden' : '';
-      };
-
-      const handleImageClick = (e) => {
-          imagenesLight.src = e.target.src;
-          imagenesLight.alt = e.target.alt;
-          toggleLightbox(true);
-      };
-
-      imagenes.forEach(imagen => {
-          imagen.addEventListener('click', handleImageClick);
-      });
-
-      closeBtn.addEventListener('click', () => toggleLightbox(false));
-
-      contenedorLight.addEventListener('click', (e) => {
-          if (e.target === contenedorLight) {
-              toggleLightbox(false);
-          }
-      });
-
-      document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && contenedorLight.classList.contains('show')) {
-              toggleLightbox(false);
-          }
-      });
-  });
-</script>
+    </script>
+</div>
 </body>
 
 </html>
