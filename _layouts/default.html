@@ -17,7 +17,7 @@ layout: compress
     var currentURL = window.location.href;
     var whatsappLinks = document.querySelectorAll("a#lead_whatsapp");
     whatsappLinks.forEach(function(link) {
-        var message = "Hola! Me gustaría recibir más información de esta propiedad: " + encodeURIComponent(currentURL);
+        var message = "Hola! Me gustaría recibir más información de esta página: " + encodeURIComponent(currentURL);
         var mobileLink = "https://wa.me/57{{site.celular}}?text=" + message;
         var desktopLink = "https://web.whatsapp.com/send?phone=57{{site.celular}}&text=" + message;
         if (isMobile) {
