@@ -108,7 +108,17 @@ h3 {
     url("../img/hero-chelsea.avif") center/cover;
   display: grid;
   grid-template-rows: auto 1fr;
-  animation: heroScale 1.2s ease-out;
+  -webkit-animation: heroScale 1.2s ease-out;
+          animation: heroScale 1.2s ease-out;
+}
+
+@-webkit-keyframes heroScale {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 @keyframes heroScale {
@@ -132,7 +142,9 @@ h3 {
   align-items: center;
   padding: var(--spacing-sm) var(--container-padding);
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -171,7 +183,8 @@ h3 {
   max-width: 800px;
   margin-inline: auto;
   padding: var(--spacing-md);
-  animation: fadeUp 1s ease-out 0.5s both;
+  -webkit-animation: fadeUp 1s ease-out 0.5s both;
+          animation: fadeUp 1s ease-out 0.5s both;
 }
 
 /* Buttons */
@@ -261,7 +274,8 @@ h3 {
 .story-image {
   height: 250px;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: transform var(--transition-normal);
 }
 
@@ -554,7 +568,8 @@ h3 {
   border-radius: 50%;
   width: 80px;
   height: 80px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .testimonial-card:hover {
@@ -612,7 +627,8 @@ blockquote::before {
 
 .location-card {
   background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: var(--spacing-md);
   display: grid;
@@ -717,6 +733,16 @@ blockquote::before {
 }
 
 /* Animations */
+@-webkit-keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -729,7 +755,19 @@ blockquote::before {
 }
 
 .fade-in {
-  animation: fadeIn 0.6s ease-in forwards;
+  -webkit-animation: fadeIn 0.6s ease-in forwards;
+          animation: fadeIn 0.6s ease-in forwards;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {
@@ -782,7 +820,8 @@ blockquote::before {
 /* Utility Classes */
 .visually-hidden {
   clip: rect(0 0 0 0);
-  clip-path: inset(50%);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
   height: 1px;
   overflow: hidden;
   position: absolute;
@@ -867,7 +906,8 @@ blockquote::before {
 .gallery-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: transform 0.3s ease;
 }
 
